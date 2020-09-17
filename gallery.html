@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="main.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <img src="images/resursi/logo_1.jpg" alt="logo" width="60px">
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="upload" style="height: 25vh; position: relative; top: -2em;">
+            <div style=" width: 20%; margin: 0 auto; text-align: left;">
+                <h3 style="padding: 1.5em 0">UPLOAD PHOTO AND WIN A PRIZE</h3>
+                <p>Lorem ipsum dolor sit amet consectet architecto eveniet repellat. Rem laudantium aperiam in
+                    eli.</p>
+            </div>
+        </section>
+        <section style="position: relative;">
+            <div class="image-upload">
+                <label for="file1">
+                    <img src="images/resursi/upload_photo.png" />
+                </label>
+
+                <input id="file1" type="file" onchange="ucitajSliku()" accept="image/*" />
+            </div>
+            <div id="galerija">
+                <img src="images/resursi/paris.jpg" alt="">
+                <img src="images/resursi/rome.jpg" alt="">
+                <img src="images/resursi/venice.jpg" alt="">
+                <img src="images/resursi/quiske.jpg" alt="">
+                <img src="images/resursi/thailand.jpg" alt="">
+                <img src="images/resursi/taj_mahal.jpg" alt="">
+                <img src="images/resursi/london.jpeg" alt="">
+                <img src="images/resursi/rio.jpg" alt="">
+                <img src="images/resursi/athen.jpg" alt="">
+                <img src="images/resursi/havana.jpg" alt="">
+
+            </div>
+
+        </section>
+    </main>
+    <footer>
+        <ul>
+            <li>&copy;SmartInIt 2020</li>
+            <li>
+                <a href=" home.html">Home</a>
+            </li>
+            <li>
+                <a href="#">Privacy Policy</a>
+            </li>
+            <li>
+                <a href="contact.html">Contact Support</a>
+            </li>
+        </ul>
+    </footer>
+    <script type="text/javascript">
+        function ucitajSliku() {
+            var fajlElem = document.getElementById('file1');
+            if (fajlElem.files.length != 0 && fajlElem.files[0].type.match(/image.*/)) {
+                var reader = new FileReader();
+                reader.readAsDataURL(fajlElem.files[0]);
+                reader.onload = function (e) {
+
+                    var elem = document.createElement("img");
+                    elem.src = e.target.result;
+                    document.getElementById('galerija').appendChild(elem);
+                }
+                reader.onerror = function (e) {
+                    alert('Ne moze da se ucita slika');
+                }
+            } else {
+                alert("Odaberite sliku");
+            }
+        }
+    </script>
+</body>
+
+</html>
